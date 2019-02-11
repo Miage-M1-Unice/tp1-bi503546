@@ -2,8 +2,8 @@ package fr.miage.master1.tp1;
 import java.io.*;
 
 public class MaClass {
-    public static void main(String[]args){
-        //System.out.println("helloWorld");
+
+    public void recuperer(){
         File monRep = new File(".");
         String liste[] = monRep.list();
 
@@ -15,4 +15,9 @@ public class MaClass {
             System.err.println("Nom de repertoire invalide");
         }
     }
+    public static void main(String[]args){
+
+        MaClass m = new MaClass();
+        m.recuperer();
+           }
 }
