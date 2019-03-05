@@ -51,6 +51,7 @@ public class AnalyseurDeClasse {
      */
     public static void afficheEnTeteClasse(Class cl) {
         //  Affichage du modifier et du nom de la classe
+        System.out.print(Modifier.toString(cl.getModifiers()) + " class ");
         System.out.print(cl.getName());
 
         // Récupération de la superclasse si elle existe (null si cl est le type Object)
@@ -66,7 +67,7 @@ public class AnalyseurDeClasse {
         // Affichage des interfaces que la classe implemente
         Class[] interfaces = cl.getInterfaces();
         for(int i = 0; i< interfaces.length; i++)
-            System.out.print(" implements "+ interfaces[i].getSimpleName());
+            System.out.print(" implements "+ interfaces[i].getName());
 
 
         // Enfin, l'accolade ouvrante !
@@ -76,7 +77,8 @@ public class AnalyseurDeClasse {
     public static void afficheAttributs(Class cl)  {
         Field[] declaredFields = cl.getDeclaredFields();
         for(int i = 0; i < declaredFields.length; i++){
-            System.out.println("  "+ declaredFields[i].getGenericType() +" "+ declaredFields[i].getName() +";");
+            System.out.print(Modifier.toString( declaredFields[i].getModifiers()) + " ");
+            System.out.println(declaredFields[i].getGenericType() +" "+ declaredFields[i].getName() +";");
         }
     }
 
@@ -84,7 +86,7 @@ public class AnalyseurDeClasse {
 
         Constructor[] cons1 = cl.getConstructors();
         for(int i = 0; i < cons1.length; i++)
-            System.out.println("  "+cons1[i]);
+            System.out.println("  "+cons1[i] +";");
 
 
     }
@@ -93,23 +95,27 @@ public class AnalyseurDeClasse {
     public static void afficheMethodes(Class cl) {
 
         Method[] methods = cl.getDeclaredMethods();
-        for(int i = 0; i < methods.length; i++)
-            System.out.println("  "+methods[i]+";");
-
+        for (int i = 0; i < methods.length; i++) {
+            System.out.print(Modifier.toString(methods[i].getModifiers()) + " ");
+            System.out.print(methods[i].getGenericReturnType() + " "+  methods[i].getName() + "(");
+            Parameter params[] = methods[i].getParameters();
+            for(Parameter p : params) {
+                System.out.print(p.getType().getName() + ",");
+            }
+            System.out.println(")");
+        }
     }
-
-
-    public static String litChaineAuClavier() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        return br.readLine();
-    }
+        public static String litChaineAuClavier () throws IOException {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            return br.readLine();
+        }
 
 
     public static void main(String[] args) throws NoSuchMethodException, ClassNotFoundException, IOException, IllegalAccessException, InvocationTargetException, InstantiationException {
         boolean ok = false;
 
         while (!ok) {
-            System.out.print("Entrez le nom d'une classe (ex : java.util.Date): ");
+            //System.out.print("Entrez le nom d'une classe (ex : java.util.Date): ");
             String nomClasse = "java.awt.Point";
 
             analyseClasse(nomClasse);
