@@ -1,4 +1,4 @@
-package fr.miage.master1.tp1;
+package fr.miage.master1.tp1.exo1.point2;
 
 
 import java.io.File;

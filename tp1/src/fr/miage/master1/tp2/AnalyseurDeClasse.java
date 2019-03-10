@@ -1,4 +1,4 @@
-package fr.miage.master1.tp2.exo1;
+package fr.miage.master1.tp2;
 
 
 import java.lang.reflect.*;

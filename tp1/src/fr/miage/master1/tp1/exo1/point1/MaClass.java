@@ -1,4 +1,4 @@
-package fr.miage.master1.tp1;
+package fr.miage.master1.tp1.exo1.point1;
 import java.io.*;
 
 public class MaClass {

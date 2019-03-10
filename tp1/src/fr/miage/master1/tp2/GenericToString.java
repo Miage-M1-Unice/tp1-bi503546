@@ -1,9 +1,8 @@
-package fr.miage.master1.tp2.exo1;
+package fr.miage.master1.tp2;
 
 import java.awt.*;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
-import java.util.Arrays;
 
 public class GenericToString {
     public String toString(Object obj) throws IllegalAccessException, IllegalArgumentException, NoSuchFieldException {
