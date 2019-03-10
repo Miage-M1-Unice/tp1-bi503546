@@ -1,4 +1,4 @@
-package fr.miage.master1.tp1.exo1.fr.miage.master1.tp1.exo1.c;
+package fr.miage.master1.tp1.exo1.PointC;
 
 import java.io.File;
 import java.io.FilenameFilter;
