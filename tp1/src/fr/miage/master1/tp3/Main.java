@@ -7,10 +7,12 @@ import java.net.URLClassLoader;
 public class Main {
 
         public static void main(String[] args) throws ClassNotFoundException, MalformedURLException {
-            URL[] urls = {new URL("file://C:\\Users\\imen\\Desktop\\tp1\\tp1-bi503546\\tp1")};
+
+            URL[] urls = {new URL("file:///D:/cours/L3/POO/Moy")};
+            System.out.println(urls[0]);
             URLClassLoader ucl = new URLClassLoader(urls);
-            ucl.loadClass("fr.miage.master1.tp2.AnalyseurDeClasse");
-            System.out.println(ucl);
+            Class c = ucl.loadClass("moy.Moyenne");
+            System.out.println(c);
         }
 
 }
